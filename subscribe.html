@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe - Placeholder Music</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Placeholder Music</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="links.html">Music</a></li>
+            <li><a href="subscribe.html" class="active">Subscribe</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="page-content subscribe-page">
+        <div class="container">
+            <div class="subscribe-hero">
+                <h1 class="page-title">Join the Journey</h1>
+                <p class="page-description">Be the first to know about new releases, exclusive content, and upcoming shows. No spam, just music.</p>
+            </div>
+
+            <div class="subscribe-form-container">
+                <form class="subscribe-form" id="subscribeForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Your last name">
+                    </div>
+                    <div class="form-group">
+                        <label for="subEmail">Email Address</label>
+                        <input type="email" id="subEmail" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">I agree to receive email updates about new music and events</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">Subscribe Now</button>
+                </form>
+                <div id="subscribeMessage" class="form-message"></div>
+            </div>
+
+            <div class="subscribe-benefits">
+                <h2>What You'll Get</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎶</div>
+                        <h3>New Releases</h3>
+                        <p>Be the first to hear new tracks and albums</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎁</div>
+                        <h3>Exclusive Content</h3>
+                        <p>Behind-the-scenes content and unreleased material</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎤</div>
+                        <h3>Show Updates</h3>
+                        <p>Early access to tickets and tour announcements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Placeholder Music. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
