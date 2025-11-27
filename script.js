@@ -36,7 +36,11 @@ function initNavbar() {
         });
     });
 
-    // Navbar scroll effect
+    // Initially hide navbar
+    navbar.style.transform = 'translateY(-100%)';
+    navbar.style.transition = 'transform 0.3s ease, padding 0.3s ease, background 0.3s ease';
+
+    // Navbar scroll effect - show when scrolling, hide when at top
     let lastScroll = 0;
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
@@ -45,6 +49,13 @@ function initNavbar() {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
+        }
+
+        // Show navbar when scrolling, hide when at top
+        if (currentScroll > 10) {
+            navbar.style.transform = 'translateY(0)';
+        } else {
+            navbar.style.transform = 'translateY(-100%)';
         }
 
         lastScroll = currentScroll;
