@@ -150,20 +150,10 @@ a:hover {
     position: relative;
     padding: 100px 20px;
     overflow: hidden;
-<<<<<<< Updated upstream
-    background-image: url('assets/PlaceholderMuisc/1.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-=======
-<<<<<<< Updated upstream
-=======
     background-image: url('assets/PlaceholderMuisc/6.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 }
 
 .hero-content {
