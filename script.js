@@ -36,30 +36,82 @@ function initNavbar() {
         });
     });
 
-    // Initially hide navbar
-    navbar.style.transform = 'translateY(-100%)';
-    navbar.style.transition = 'transform 0.3s ease, padding 0.3s ease, background 0.3s ease';
+    // Check if we're on the index page
+    const isIndexPage = window.location.pathname.endsWith('index.html') || 
+                        window.location.pathname === '/' || 
+                        window.location.pathname.endsWith('/');
 
-    // Navbar scroll effect - show when scrolling, hide when at top
-    let lastScroll = 0;
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+    if (isIndexPage) {
+        // Initially hide navbar on index page
+        navbar.style.transform = 'translateY(-100%)';
+        navbar.style.transition = 'transform 0.3s ease, padding 0.3s ease, background 0.3s ease';
 
-        // Show navbar when scrolling, hide when at top
-        if (currentScroll > 10) {
-            navbar.style.transform = 'translateY(0)';
-        } else {
-            navbar.style.transform = 'translateY(-100%)';
-        }
+        let isHovering = false;
 
-        lastScroll = currentScroll;
-    });
+        // Show navbar on hover when at top of page
+        document.addEventListener('mousemove', function(e) {
+            const currentScroll = window.pageYOffset;
+            
+            // Only show on hover if we're at the top of the page
+            if (currentScroll <= 10 && e.clientY <= 80) {
+                if (!isHovering) {
+                    isHovering = true;
+                    navbar.style.transform = 'translateY(0)';
+                }
+            } else if (currentScroll <= 10 && e.clientY > 80) {
+                if (isHovering) {
+                    isHovering = false;
+                    navbar.style.transform = 'translateY(-100%)';
+                }
+            }
+        });
+
+        // Hide navbar when mouse leaves the top area
+        navbar.addEventListener('mouseleave', function() {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 10) {
+                isHovering = false;
+                navbar.style.transform = 'translateY(-100%)';
+            }
+        });
+
+        // Navbar scroll effect - show when scrolling, hide when at top
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Show navbar when scrolling, hide when at top (unless hovering)
+            if (currentScroll > 10) {
+                navbar.style.transform = 'translateY(0)';
+                isHovering = false;
+            } else if (!isHovering) {
+                navbar.style.transform = 'translateY(-100%)';
+            }
+
+            lastScroll = currentScroll;
+        });
+    } else {
+        // On other pages, navbar is always visible
+        navbar.style.transform = 'translateY(0)';
+        navbar.style.transition = 'transform 0.3s ease, padding 0.3s ease, background 0.3s ease';
+
+        // Still handle scrolled state for styling
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 }
 
 /**

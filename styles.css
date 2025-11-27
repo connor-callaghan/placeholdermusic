@@ -1,8 +1,8 @@
 /* Root Variables */
 :root {
-    --primary-color: #6c63ff;
-    --secondary-color: #ff6b9d;
-    --accent-color: #00d9ff;
+    --primary-color: #1168a9;
+    --secondary-color: #387220;
+    --accent-color: #997865;
     --brand-cream: #fffdf5;
     --brand-white: #ffffff;
     --dark-bg: #0a0a1a;
@@ -115,8 +115,15 @@ a:hover {
     color: var(--text-primary);
 }
 
-.nav-links a:hover::after,
 .nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links:hover a.active:not(:hover)::after {
+    width: 0;
+}
+
+.nav-links a:hover::after {
     width: 100%;
 }
 
@@ -143,6 +150,10 @@ a:hover {
     position: relative;
     padding: 100px 20px;
     overflow: hidden;
+    background-image: url('assets/PlaceholderMuisc/1.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-content {
@@ -159,6 +170,20 @@ a:hover {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: fadeInUp 1s ease;
+}
+
+img.hero-title {
+    width: 100%;
+    max-width: min(90vw, 800px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    font-size: unset;
+    font-weight: unset;
 }
 
 .hero-subtitle {
@@ -737,6 +762,17 @@ a:hover {
     align-items: center;
 }
 
+.nav-brand img.hero-title {
+    height: 35px !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 10px 0 0 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    object-fit: contain !important;
+}
+
 .nav-brand:hover .nav-logo {
     opacity: 1;
 }
@@ -877,5 +913,9 @@ a:hover {
     
     .nav-logo {
         height: 30px;
+    }
+    
+    .nav-brand img.hero-title {
+        height: 28px !important;
     }
 }
